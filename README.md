@@ -21,3 +21,5 @@ Dica: Utilize Migrations.
 # Etapas
 
 #1 - Fazer um fork desse repositório
+![image](https://user-images.githubusercontent.com/80771610/111335799-0e913a80-864b-11eb-94a7-d3c7b6d17e0a.png)
+
