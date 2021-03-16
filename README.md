@@ -24,7 +24,7 @@ Dica: Utilize Migrations.
 ![image](https://user-images.githubusercontent.com/80771610/111335799-0e913a80-864b-11eb-94a7-d3c7b6d17e0a.png)
 
 # 2 - Criar um branch com o seu primeiro e último nome
-git checkout -b steve jobs
+git checkout -b Steven Jobs
 
 # 3 - Escreva a documentação da sua aplicação
 Crie uma pasta na raíz da aplicação chamada docs/ contendo o a modelagem entidade-relacionamento (em imagem ou pdf) da sua aplicação. Você deve também, substituir o conteúdo do arquivo README.md e escrever a documentação da sua aplicação, com os seguintes tópicos:
