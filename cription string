@@ -1,0 +1,5 @@
+[34m690554c[31m (HEAD -> master) [37mrefactor: aplicar categories.routes single-responsibility principle - [33mVanessa Francis, [32m24 hours ago
+[34m630825f[31m [37mfeat: add list with all categories and validate insertion repetitive with same description - [33mVanessa Francis, [32m27 hours ago
+[34m31f3321[31m [37mrefactor: move create categories to a repository - [33mVanessa Francis, [32m2 days ago
+[34m63d8ddd[31m [37mfeat: routes Category - [33mVanessa Francis, [32m2 days ago
+[34m74bf74a[31m [37mchore: add dependencies - [33mVanessa Francis, [32m2 days ago
