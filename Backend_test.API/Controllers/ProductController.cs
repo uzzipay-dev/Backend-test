@@ -7,6 +7,7 @@ using Backend_test.Domain.Models;
 using Backend_test.API.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Backend_test.API.Controllers
 {
@@ -34,8 +35,9 @@ namespace Backend_test.API.Controllers
                 product.ProductCategory = new List<ProductCategory>();
                 
                 this._repo.Add(product);
+                var CategoriesId = model.CategoriesId.Distinct().ToList();
 
-                foreach(var id in model.CategoriesId)
+                foreach(var id in CategoriesId)
                 {
                     var category = await this._repo.GetCategory_Id(id);
                     if (category != null)
