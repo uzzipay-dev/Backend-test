@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PX7NJFviVQNZCqZtXaBfBSMPph4mVDb2RngFnlzpo5+plL6bnRw4PByXyBlMiodfKfnFpqdxL8AHRt0yB7xTUA==",
+  "dgSpecHash": "P8YGPZ/ZkiyAawRjZA4h0xj74gq865KNhhls8m6jQ0+HhuBXhz+kPumRv9P79HQULgyFySskeG032bFZkz1k+Q==",
   "success": true,
   "projectFilePath": "/home/thalesgomesjr/Dev/Backend-test/Backend_test.API/Backend_test.API.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "/home/thalesgomesjr/.nuget/packages/microsoft.aspnetcore.cryptography.internal/3.1.6/microsoft.aspnetcore.cryptography.internal.3.1.6.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/3.1.6/microsoft.aspnetcore.cryptography.keyderivation.3.1.6.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/3.1.6/microsoft.aspnetcore.identity.entityframeworkcore.3.1.6.nupkg.sha512",
+    "/home/thalesgomesjr/.nuget/packages/microsoft.aspnetcore.jsonpatch/3.1.6/microsoft.aspnetcore.jsonpatch.3.1.6.nupkg.sha512",
+    "/home/thalesgomesjr/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/3.1.6/microsoft.aspnetcore.mvc.newtonsoftjson.3.1.6.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
@@ -36,6 +38,8 @@
     "/home/thalesgomesjr/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/microsoft.win32.registry/4.5.0/microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "/home/thalesgomesjr/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
+    "/home/thalesgomesjr/.nuget/packages/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/runtime.native.system.data.sqlclient.sni/4.4.0/runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/home/thalesgomesjr/.nuget/packages/runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

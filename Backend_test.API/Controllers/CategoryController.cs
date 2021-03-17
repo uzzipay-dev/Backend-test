@@ -51,10 +51,7 @@ namespace Backend_test.API.Controllers
             try
             {
                 var categories = await this._repo.GetAllCategories();
-                        
-                //contractor.Contract = new List<Contract>();
-                //contractor.Contract.AddRange(contract);
-
+                
                 return Ok(categories);
             }
             catch (System.Exception)
@@ -68,7 +65,7 @@ namespace Backend_test.API.Controllers
         {
             try
             {
-                var category = await this._repo.GetCategory_Id(id);
+                var category = await this._repo.GetCategoryAll_Id(id);
                 
                 if (category == null) return this.StatusCode(StatusCodes.Status404NotFound, "Category not found");
 

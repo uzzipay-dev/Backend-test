@@ -15,5 +15,6 @@ namespace Backend_test.API.DTOs
 
         public List<CategoryDTO> Categories { get; set; }
 
+        public List<int> CategoriesId { get; set; }
     }
 }

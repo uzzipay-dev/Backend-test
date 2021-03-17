@@ -6,6 +6,7 @@ using Backend_test.Repository;
 using Backend_test.Domain.Models;
 using Backend_test.API.DTOs;
 using System;
+using System.Collections.Generic;
 
 namespace Backend_test.API.Controllers
 {
@@ -30,8 +31,25 @@ namespace Backend_test.API.Controllers
             {  
                 var product = this._mapper.Map<Product>(model);
                 
-                this._repo.Add(product);
+                product.ProductCategory = new List<ProductCategory>();
                 
+                this._repo.Add(product);
+
+                foreach(var id in model.CategoriesId)
+                {
+                    var category = await this._repo.GetCategory_Id(id);
+                    if (category != null)
+                    {
+                        product.ProductCategory.Add(
+                            new ProductCategory 
+                            {
+                                Product = product,
+                                Category = category,
+                            }
+                        );
+                    }
+                }
+        
                 if (await this._repo.SaveChangesAsync())
                 {
                     return Created($"/get_product/{product.Id}", product);
@@ -53,10 +71,7 @@ namespace Backend_test.API.Controllers
             try
             {
                 var products = await this._repo.GetAllProducts();
-                        
-                //contractor.Contract = new List<Contract>();
-                //contractor.Contract.AddRange(contract);
-
+                
                 return Ok(products);
             }
             catch (System.Exception)
@@ -70,7 +85,7 @@ namespace Backend_test.API.Controllers
         {
             try
             {
-                var product = await this._repo.GetProduct_Id(id);
+                var product = await this._repo.GetProductAll_Id(id);
                 
                 if (product == null) return this.StatusCode(StatusCodes.Status404NotFound, "Product not found");
 

@@ -64,3 +64,7 @@
 /home/thalesgomesjr/Dev/Backend-test/Backend_test.API/obj/Debug/netcoreapp3.1/Backend_test.API.genruntimeconfig.cache
 /home/thalesgomesjr/Dev/Backend-test/Backend_test.API/bin/Debug/netcoreapp3.1/AutoMapper.dll
 /home/thalesgomesjr/Dev/Backend-test/Backend_test.API/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.API/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.API/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
