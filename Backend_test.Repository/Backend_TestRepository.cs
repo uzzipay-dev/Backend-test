@@ -36,28 +36,30 @@ namespace Backend_test.Repository
     
         public async Task<Product> GetProduct_Id(int id)
         {
-            var query = this._context.Product.AsNoTracking().Where(p => p.Id == id).Include(c => c.Categories);
+            var query = this._context.Product.AsNoTracking().Where(p => p.Id == id)
+                        .Include(pc => pc.ProductCategory).ThenInclude(c => c.Category);
             
             return await query.FirstOrDefaultAsync();
         }
 
         public async Task<Product[]> GetAllProducts()
         {
-            var query = this._context.Product.AsNoTracking();
+            var query = this._context.Product.AsNoTracking().Include(pc => pc.ProductCategory).ThenInclude(c => c.Category);
 
             return await query.ToArrayAsync();
         }
 
         public async Task<Category> GetCategory_Id(int id)
         {
-            var query = this._context.Category.AsNoTracking().Where(c => c.Id == id).Include(p => p.Products);
+            var query = this._context.Category.AsNoTracking().Where(c => c.Id == id)
+                        .Include(pc => pc.ProductCategory).ThenInclude(p => p.Product);
             
             return await query.FirstOrDefaultAsync();
         }
         
         public async Task<Category[]> GetAllCategories()
         {
-            var query = this._context.Category.AsNoTracking();
+            var query = this._context.Category.AsNoTracking().Include(pc => pc.ProductCategory).ThenInclude(p => p.Product);
 
             return await query.ToArrayAsync();
         }

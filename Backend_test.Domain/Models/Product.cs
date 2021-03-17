@@ -13,8 +13,6 @@ namespace Backend_test.Domain.Models
         [Required(ErrorMessage = "Required field")]
         public double Value { get; set; }
 
-        public int CategoryId { get; set; }
-
-        public List<Category> Categories { get; }
+        public List<ProductCategory> ProductCategory { get; set; }
     }
 }
