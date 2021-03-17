@@ -15,10 +15,14 @@ namespace Backend_test.Repository
 
         Task<Product> GetProduct_Id(int id);
 
+        Task<Product> GetProductAll_Id(int id);
+
         Task<Product[]> GetAllProducts();
 
         Task<Category> GetCategory_Id(int id);
-
+        
+        Task<Category> GetCategoryAll_Id(int id);
+        
         Task<Category[]> GetAllCategories();
 
     }

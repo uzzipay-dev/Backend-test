@@ -9,7 +9,6 @@ namespace Backend_test.Repository
 
         public DbSet<Product> Product { get; set; }
         public DbSet<Category> Category { get; set; }
-
         public DbSet<ProductCategory> ProductCategory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){

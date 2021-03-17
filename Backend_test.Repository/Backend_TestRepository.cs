@@ -36,6 +36,13 @@ namespace Backend_test.Repository
     
         public async Task<Product> GetProduct_Id(int id)
         {
+            var query = this._context.Product.AsNoTracking().Where(p => p.Id == id);
+            
+            return await query.FirstOrDefaultAsync();
+        }
+
+        public async Task<Product> GetProductAll_Id(int id)
+        {
             var query = this._context.Product.AsNoTracking().Where(p => p.Id == id)
                         .Include(pc => pc.ProductCategory).ThenInclude(c => c.Category);
             
@@ -51,12 +58,18 @@ namespace Backend_test.Repository
 
         public async Task<Category> GetCategory_Id(int id)
         {
+            var query = this._context.Category.AsNoTracking().Where(c => c.Id == id);
+            return await query.FirstOrDefaultAsync();
+        }
+        
+        public async Task<Category> GetCategoryAll_Id(int id)
+        {
             var query = this._context.Category.AsNoTracking().Where(c => c.Id == id)
                         .Include(pc => pc.ProductCategory).ThenInclude(p => p.Product);
             
             return await query.FirstOrDefaultAsync();
         }
-        
+
         public async Task<Category[]> GetAllCategories()
         {
             var query = this._context.Category.AsNoTracking().Include(pc => pc.ProductCategory).ThenInclude(p => p.Product);
