@@ -8,11 +8,12 @@ namespace Backend_test.API.DTOs
         public int Id { get; set; }
         
         [Required(ErrorMessage = "Required field")]
-        public string Nome { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Required field")]
-        public double Valor { get; set; }
+        public double Value { get; set; }
 
-        public List<int> CategoryId { get; set; }
+        public List<CategoryDTO> Categories { get; set; }
+
     }
 }

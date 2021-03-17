@@ -5,6 +5,7 @@ using AutoMapper;
 using Backend_test.Repository;
 using Backend_test.Domain.Models;
 using Backend_test.API.DTOs;
+using System;
 
 namespace Backend_test.API.Controllers
 {
@@ -28,6 +29,7 @@ namespace Backend_test.API.Controllers
             try
             {  
                 var product = this._mapper.Map<Product>(model);
+                
                 this._repo.Add(product);
                 
                 if (await this._repo.SaveChangesAsync())

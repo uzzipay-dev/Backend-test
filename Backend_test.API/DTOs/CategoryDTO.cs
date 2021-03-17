@@ -10,6 +10,6 @@ namespace Backend_test.API.DTOs
         [Required(ErrorMessage = "Required field")]
         public string Name { get; set; }
 
-        public List<int> Products { get; set; }
+        public List<ProductDTO> Products { get; set; }
     }
 }
