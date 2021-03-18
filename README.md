@@ -45,3 +45,5 @@ dotnet Backend_test.API.dll
 
 API deve funcionar no endereço `http://localhost:5000/`
 
+Para visualizar a documentação automatica da RESTFul API pelo Swagger acesse `http://localhost:5000/swagger/`
+
