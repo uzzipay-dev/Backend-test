@@ -1,0 +1,12 @@
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/bin/Debug/netstandard2.1/Backend_test.Repository.deps.json
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/bin/Debug/netstandard2.1/Backend_test.Repository.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/bin/Debug/netstandard2.1/Backend_test.Repository.pdb
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/bin/Debug/netstandard2.1/Backend_test.Domain.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/bin/Debug/netstandard2.1/Backend_test.Domain.pdb
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/obj/Debug/netstandard2.1/Backend_test.Repository.csprojAssemblyReference.cache
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/obj/Debug/netstandard2.1/Backend_test.Repository.AssemblyInfoInputs.cache
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/obj/Debug/netstandard2.1/Backend_test.Repository.AssemblyInfo.cs
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/obj/Debug/netstandard2.1/Backend_test.Repository.csproj.CoreCompileInputs.cache
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/obj/Debug/netstandard2.1/Backend_test.Repository.csproj.CopyComplete
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/obj/Debug/netstandard2.1/Backend_test.Repository.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Repository/obj/Debug/netstandard2.1/Backend_test.Repository.pdb

@@ -1,0 +1,9 @@
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/bin/Debug/netstandard2.1/Backend_test.Domain.deps.json
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/bin/Debug/netstandard2.1/Backend_test.Domain.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/bin/Debug/netstandard2.1/Backend_test.Domain.pdb
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/obj/Debug/netstandard2.1/Backend_test.Domain.csprojAssemblyReference.cache
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/obj/Debug/netstandard2.1/Backend_test.Domain.AssemblyInfoInputs.cache
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/obj/Debug/netstandard2.1/Backend_test.Domain.AssemblyInfo.cs
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/obj/Debug/netstandard2.1/Backend_test.Domain.csproj.CoreCompileInputs.cache
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/obj/Debug/netstandard2.1/Backend_test.Domain.dll
+/home/thalesgomesjr/Dev/Backend-test/Backend_test.Domain/obj/Debug/netstandard2.1/Backend_test.Domain.pdb
