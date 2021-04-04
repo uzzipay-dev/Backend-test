@@ -34,7 +34,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -51,7 +51,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -65,7 +65,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -83,9 +83,9 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao registrar categoria");
             }
-            return BadRequest();
+            return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao registrar categoria");
         }
 
         [HttpPut("update/{ProdutoId}")]
@@ -94,7 +94,7 @@ namespace BackEnd.API.Controllers
             try
             {
                 var categoria = await _repo.GetCategoriaAsyncById(CategoriaId);
-                if (categoria == null) return NotFound();
+                if (categoria == null) return StatusCode(StatusCodes.Status404NotFound, "Categoria não encontrada");
 
                 _mapper.Map(model, categoria);
 
@@ -104,7 +104,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao editar categoria");
             }
             return BadRequest();
         }
@@ -115,16 +115,16 @@ namespace BackEnd.API.Controllers
             try
             {
                 var categoria = await _repo.GetCategoriaAsyncById(CategoriaId);
-                if (categoria == null) return NotFound();
+                if (categoria == null) return StatusCode(StatusCodes.Status404NotFound, "Categoria não encontrada");
 
                 _repo.Remove(categoria);
 
                 if (await _repo.SaveChangesAsync())
-                    return Ok();
+                    return StatusCode(StatusCodes.Status200OK, "Categoria deletada com sucesso");
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao deletar categoria");
             }
             return BadRequest();
         }
