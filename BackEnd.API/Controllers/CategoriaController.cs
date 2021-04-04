@@ -34,7 +34,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -51,7 +51,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -65,7 +65,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -104,7 +104,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao editar categoria");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao editar categoria");
             }
             return BadRequest();
         }
@@ -124,7 +124,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao deletar categoria");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao deletar categoria");
             }
             return BadRequest();
         }
