@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BackEnd.Repository;
+using Microsoft.OpenApi.Models;
 using AutoMapper;
 
 namespace BackEnd.API
@@ -31,6 +32,7 @@ namespace BackEnd.API
             services.AddAutoMapper();
 
             services.AddControllers();
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo{ Title = "APIBackend", Version = "v1.0" }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +44,10 @@ namespace BackEnd.API
             }
 
             app.UseRouting();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Backend"));
 
             app.UseAuthorization();
 
