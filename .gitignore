@@ -5,7 +5,7 @@
 bin
 obj
 
-# compiled output
+# compiled outputew
 /dist
 /tmp
 /out-tsc
