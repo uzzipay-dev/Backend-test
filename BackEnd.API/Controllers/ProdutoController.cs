@@ -34,7 +34,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -51,7 +51,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -65,7 +65,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao se comunicar com o banco de dados");
             }
         }
 
@@ -83,9 +83,9 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao registrar produto");
             }
-            return BadRequest();
+            return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao registrar produto");
         }
 
         [HttpPut("update/{ProdutoId}")]
@@ -94,7 +94,7 @@ namespace BackEnd.API.Controllers
             try
             {
                 var produto = await _repo.GetProdutoAsyncById(ProdutoId);
-                if (produto == null) return NotFound();
+                if (produto == null) return StatusCode(StatusCodes.Status404NotFound, "Produto não encontrado");
 
                 _mapper.Map(model, produto);
 
@@ -104,7 +104,7 @@ namespace BackEnd.API.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao editar produto");
             }
             return BadRequest();
         }
@@ -115,16 +115,16 @@ namespace BackEnd.API.Controllers
             try
             {
                 var produto = await _repo.GetProdutoAsyncById(ProdutoId);
-                if (produto == null) return NotFound();
+                if (produto == null) return StatusCode(StatusCodes.Status404NotFound, "Produto não encontrado");
 
                 _repo.Remove(produto);
 
                 if (await _repo.SaveChangesAsync())
-                    return Ok();
+                    return StatusCode(StatusCodes.Status200OK, "Produto deletado com sucesso");
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao deletar produto");
             }
             return BadRequest();
         }
