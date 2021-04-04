@@ -24,7 +24,7 @@ namespace BackEnd.API
         public void ConfigureServices(IServiceCollection services)
         {   
             services.AddDbContext<BackendContext>(
-                x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
+                x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 );
                 
             services.AddScoped<IBackEndRepository, BackEndRepository>();
