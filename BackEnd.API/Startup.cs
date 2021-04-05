@@ -23,8 +23,15 @@ namespace BackEnd.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {   
+
+            var server = Configuration["DBServer"] ?? "ms-sql-server";
+            var port = Configuration["DBPort"] ?? "1433";
+            var user = Configuration["DBUser"] ?? "SA";
+            var password = Configuration["DBPassword"] ?? "Backend123*";
+            var database = Configuration["Database"] ?? "Backend";
+
             services.AddDbContext<BackendContext>(
-                x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                x => x.UseSqlServer($"Server={server},{port};Initial Catalog={database};User ID ={user};Password={password}")
                 );
                 
             services.AddScoped<IBackEndRepository, BackEndRepository>();
@@ -50,6 +57,8 @@ namespace BackEnd.API
             app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Backend"));
 
             app.UseAuthorization();
+
+            PrepDB.PrePopulation(app);
 
             app.UseEndpoints(endpoints =>
             {

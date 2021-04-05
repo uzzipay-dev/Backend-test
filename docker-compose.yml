@@ -1,0 +1,16 @@
+version: '3'
+services:
+  ms-sql-server:
+    image: microsoft/mssql-server-linux:2017-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Backend123*"
+      MSSQL_PID: Express
+    ports:
+      - '1433:1433'
+  backend-api:
+    build: .
+    environment:
+      DBServer: "ms-sql-server"
+    ports:
+      - "5000:80"
