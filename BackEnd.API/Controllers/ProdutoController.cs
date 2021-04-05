@@ -79,7 +79,7 @@ namespace BackEnd.API.Controllers
                 _repo.Add(produto);
 
                 if (await _repo.SaveChangesAsync())
-                    return Created($"/produto/{model.ProdutoId}", _mapper.Map<ProdutoDto>(produto));
+                    return Created($"/produto/{produto.ProdutoId}", _mapper.Map<ProdutoDto>(produto));
             }
             catch (System.Exception)
             {
@@ -100,7 +100,7 @@ namespace BackEnd.API.Controllers
 
                 _repo.Update(produto);
                 if (await _repo.SaveChangesAsync())
-                    return Created($"/api/produto/update/{produto.ProdutoId}", _mapper.Map<ProdutoDto>(produto));
+                    return Created($"/api/produto/getbyid/{produto.ProdutoId}", _mapper.Map<ProdutoDto>(produto));
             }
             catch (System.Exception)
             {
@@ -130,4 +130,4 @@ namespace BackEnd.API.Controllers
         }
 
     }
-}
+} 

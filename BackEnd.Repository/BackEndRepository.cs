@@ -37,55 +37,58 @@ namespace BackEnd.Repository
         //Produto
         public async Task<Produto[]> GetAllProdutoAsync()
         {
-            IQueryable<Produto> query = _context.Produtos
-                .Include(PC => PC.ProdutosCategorias)
-                .ThenInclude(C => C.Categoria);
-
+            var query = _context.Produtos
+                    .Include(PC => PC.ProdutosCategorias)
+                    .ThenInclude(C => C.Categoria);
+                       
             return await query.ToArrayAsync();
         }
         public async Task<Produto[]> GetAllProdutoAsyncByName(string nome)
         {
-            IQueryable<Produto> query = _context.Produtos
-                .Include(PC => PC.ProdutosCategorias)
-                .ThenInclude(C => C.Categoria)
-                .Where(P => P.Nome.Contains(nome));
-
+            var query = _context.Produtos
+                    .Include(PC => PC.ProdutosCategorias)
+                    .ThenInclude(C => C.Categoria)
+                    .Where(P => P.Nome.ToLower().Contains(nome.ToLower()));
+                
             return await query.ToArrayAsync();
         }
         public async Task<Produto> GetProdutoAsyncById(int ProdutoId)
         {
-            IQueryable<Produto> query = _context.Produtos
-                .Include(PC => PC.ProdutosCategorias)
-                .ThenInclude(C => C.Categoria)
-                .Where(P => P.ProdutoId == ProdutoId);
+           var query = _context.Produtos
+                    .Include(PC => PC.ProdutosCategorias)
+                    .ThenInclude(C => C.Categoria)
+                    .Where(P => P.ProdutoId == ProdutoId);
 
             return await query.FirstOrDefaultAsync();
         }
+
+        //Categoria
         public async Task<Categoria[]> GetAllCategoriaAsync()
         {
-            IQueryable<Categoria> query = _context.Categorias
-                .Include(PC => PC.ProdutosCategorias)
-                .ThenInclude(P => P.Produto);
-
+            var query = _context.Categorias
+                    .Include(PC => PC.ProdutosCategorias)
+                    .ThenInclude(P => P.Produto);
+          
             return await query.ToArrayAsync();
         }
         public async Task<Categoria[]> GetAllCategoriaAsyncByName(string nome)
         {
-            IQueryable<Categoria> query = _context.Categorias
-                .Include(PC => PC.ProdutosCategorias)
-                .ThenInclude(P => P.Produto)
-                .Where(C => C.Nome.Contains(nome));
+            var query = _context.Categorias
+                    .Include(PC => PC.ProdutosCategorias)
+                    .ThenInclude(P => P.Produto)
+                    .Where(C => C.Nome.ToLower().Contains(nome.ToLower()));
 
             return await query.ToArrayAsync();
+
         }
         public async Task<Categoria> GetCategoriaAsyncById(int CategoriaId)
         {
-            IQueryable<Categoria> query = _context.Categorias
-                .Include(PC => PC.ProdutosCategorias)
-                .ThenInclude(P => P.Produto)
-                .Where(C => C.CategoriaId == CategoriaId);
+            var query = _context.Categorias
+                    .Include(PC => PC.ProdutosCategorias)
+                    .ThenInclude(P => P.Produto)
+                    .Where(C => C.CategoriaId == CategoriaId);
 
-            return await query.FirstOrDefaultAsync();
+             return await query.FirstOrDefaultAsync();
         }
     }
 }

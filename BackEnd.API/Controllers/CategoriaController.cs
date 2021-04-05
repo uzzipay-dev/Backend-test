@@ -88,7 +88,7 @@ namespace BackEnd.API.Controllers
             return StatusCode(StatusCodes.Status500InternalServerError, "Falha ao registrar categoria");
         }
 
-        [HttpPut("update/{ProdutoId}")]
+        [HttpPut("update/{CategoriaId}")]
         public async Task<IActionResult> Put(int CategoriaId, CategoriaDto model)
         {
             try
@@ -109,7 +109,7 @@ namespace BackEnd.API.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("delete/{ProdutoId}")]
+        [HttpDelete("delete/{CategoriaId}")]
         public async Task<IActionResult> Delete(int CategoriaId)
         {
             try

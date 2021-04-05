@@ -11,7 +11,8 @@ namespace BackEnd.Repository
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ProdutoCategoria> ProdutosCategorias { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder){
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<ProdutoCategoria>()
                 .HasKey(PC => new {PC.ProdutoId, PC.CategoriaId});
         }
