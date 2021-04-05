@@ -1,74 +1,105 @@
-# Backend
+# Solução desafio back-end
 
-Somos uma Fintech que atua em vários segmentos de mercado, com diferentes tecnologias, culturas e desafios. Por isso, gostamos de compor nossos times com profissionais multidisciplinares, que tenham alta capacidade de aprendizado, sejam detalhistas, resiliêntes, questionadores e curiosos. Você, como Backend Developer, será o responsável por implementar, dar manutenção, aplicar correções e propor soluções em arquiteturas RESTFul API, baseadas em Micros serviços sempre buscando a melhor composição de tecnologias para cada cenário.
+### Autor
 
-# Objetivo do desafio
+- Desenvolvedor: Uthant Vicentin
+- Email: uthantvicentin@pm.me
 
-O desafio para Backend Developer, tem o objetivo de analisar como você constrói uma RESTFul API e como a sua estrutura de aplicações pode ser escalável e maleável as mudanças de escopo.
+#### Frameworks
 
-# Orientações
-
-Para executar o desafio de Backend Developer, você poderá utilizar qualquer liguagem de programação, framework ou biblioteca e banco de dados que for confortável para você, seguindo o passo-a-passo para a execução, atendendo aos critérios de aceitação.
-
-# Desafio
-
-Você é o responsável por construir uma RESTFul API que seja capaz de efetuar o CRUD de produtos e categorias. O produto deve conter obrigatoriamente os campos id, nome e preço e a categoria deve conter id e nome. Cada produto, pode estar relacionado a várias categorias e este não pode estar relacionado a mesma categoria mais de uma vez, bem como, cada categoria pode estar relacionada a vários produtos. A implementação deve iniciar com apenas o CRUD de produtos, sem relação ao CRUD de categorias e então, deve ser implementado o CRUD de categorias após implementado o CRUD de produtos.
-
-É imprescindível que o CRUD de categorias seja implementado após o CRUD de produtos, pois analisaremos como você executa e automatiza as alterações na sua base de dados.
-
-Dica: Utilize Migrations.
-
-# Etapas
-
-#1 - Fazer um fork desse repositório
-![image](https://user-images.githubusercontent.com/80771610/111335799-0e913a80-864b-11eb-94a7-d3c7b6d17e0a.png)
-
-# 2 - Criar um branch com o seu primeiro e último nome
-git checkout -b Steven Jobs
-
-# 3 - Escreva a documentação da sua aplicação
-Crie uma pasta na raíz da aplicação chamada docs/ contendo o a modelagem entidade-relacionamento (em imagem ou pdf) da sua aplicação. Você deve também, substituir o conteúdo do arquivo README.md e escrever a documentação da sua aplicação, com os seguintes tópicos:
-
-Projeto: Descreva o projeto e como você o executou. Seja objetivo.
-Tecnologias: Descreva quais tecnologias foram utilizadas, enumerando versões (se necessário) e os links para suas documentações, bem como, qual guia de estilos de código você utilizou com o link para a sua documentação.
-Como rodar: Descreva como iniciar a sua aplicação, utilizando Docker e Docker Compose.
-Observações: Escreva a documentação em formato Markdown.
-
-# 4 - Faça uma Pull Request
-Após implementada a solução, crie uma pull request com o seu projeto para esse repositório.
-
-# Critérios de Aceitação
-Para que seu teste tenha o mínimo necessário que atenda aos requisitos esperados, ele deve:
-
-Atender ao que foi proposto no Desafio.
-Ter documentação de aplicação e modelos de banco de dados.
-Utilize o paradigma de orientação a objetos.
-Sua RESTFul API deve se comunicar em JSON e apenas nele.
-Utilize corretamente os códigos de retorno HTTP. Gostamos dessa abordagem.
-Manter uma estrutura de aplicação concisa e coerente. (Simples é melhor que complexo)
-Sua aplicação e banco de dados devem conter uma implementação como container Docker.
-Código escrito com base em algum padrão de convenções (style guide) da linguagem que está utilizando. Ex: Em Python, temos o pep8, em PHP temos a PSR2, em JavaScript temos AirBnB Standards e o Javascript Standards, etc.
-Utilizar padrões semânticos em mensagens de commit. (Gostamos do padrão de commits do repositório AngularJS)
-
-# Dicas e Informações Valiosas
-
-# O que gostaríamos de ver em seu teste:
-Testar ele localmente com docker e validar os endpoints.
-Se possível, que seu teste estivesse hospedado em algum lugar. (Gostamos do Heroku).
-Convenção de nome em classes, objetos, variáveis, métodos e etc.
-Um planejamento de entrega das tarefas do seu desafio. (Gostamos de Kanban).
-Que sua estrutura de linguagem e tecnologias seja compatível com ambiente Linux.
-Testes unitários.
-Observação: Nenhum dos itens acima é obrigatório.
-
-# O que não gostaríamos de ver no seu teste:
-Saber que não foi você quem implementou.
-Processos manuais de inicialização da aplicação e banco de dados.
-Fraco relacionamento entre colunas nas tabelas (falta de Foreign Key e Constraints).
-Falta de organização de código.
-Falta de documentação.
-Histórico de commits desorganizado e despadronizado.
+- [C# .NET Core 3.1](https://docs.microsoft.com/pt-br/dotnet/)
+- [Entity Framework Core 3.1](https://docs.microsoft.com/pt-br/ef/core/);
+- [SQL Server](https://docs.microsoft.com/pt-br/sql/sql-server/?view=sql-server-ver15);
+- [Docker](https://docs.docker.com/)
+- [Swagger](https://swagger.io/)
+- [Guia de estilos de código C#](https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
 
 
+#### DER
+![DER](src/Diagram.png)
 
 
+#### Nota
+A implementação foi iniciada utilizando o [Sqlite](https://sqlite.org/index.html). Todo o processo de migration, item obrigatório segundo as normas do desafio, estão disponibilizadas em commits anteriores:
+
+[Exemplo migration](https://github.com/uthantvicentin/Backend-test/tree/1a2699981954fafee3f98d7b2954b64e32624526/BackEnd.Repository/Migrations)
+
+A solução sofreu rebuild para utilização do [SQL Server](https://docs.microsoft.com/pt-br/sql/sql-server/?view=sql-server-ver15), portanto, os atuais migrations não estão conforme solicitado, mas o processo para análise, primeiro o produto depois a categoria, está disponibilizado no link anteriomente mencionado.
+
+## Requisitos para executar a aplicação
+ 1. Docker
+ 2. Docker-compose
+
+ [Link para download](https://www.docker.com/products/docker-desktop)
+
+### Windows
+ *O executavel para windows já contem as duas dependências*.
+
+Certifique-se de instalar a atualização do kernel do Linux para Windows. 
+
+https://docs.microsoft.com/pt-br/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package.
+
+Caso tenha algum empecilho com a instalação, basta seguir o [Manual](https://docs.docker.com/docker-for-windows/install/).
+
+### Linux
+
+#### Debian Like (Ubuntu)
+Instale o curl:
+```
+apt-get install curl -y
+```
+Baixe a ultima versão do docker:
+```
+curl -L https://github.com/docker/compose/releases/download/1.28.0/docker-compose-Linux-x86_64 -o /usr/bin/docker-compose
+```
+Dê permissão de administrador para o comando:
+```
+chmod +x /usr/bin/docker-compose
+```
+
+#### Arch
+Baixe os pacotes do repositório geral:
+```
+pacman -S docker docker-compose
+```
+
+### Pós-instalação
+***O Docker irá fazer uso portas 5000 e 1433.***
+
+***Caso tenha algum servidor ativo com essas portas, desligue.***
+
+
+Navegue até a raiz do projeto e execute:
+
+***Execute no PowerShell (Windows).***
+```
+docker-compose up --force-recreate
+```
+
+A aplicação estará em execução após a seguinte mensagem:
+```
+backend-api_1    | info: Microsoft.Hosting.Lifetime[0]
+backend-api_1    |       Now listening on: http://[::]:80
+backend-api_1    | info: Microsoft.Hosting.Lifetime[0]
+backend-api_1    |       Application started. Press Ctrl+C to shut down.
+backend-api_1    | info: Microsoft.Hosting.Lifetime[0]
+backend-api_1    |       Hosting environment: Production
+backend-api_1    | info: Microsoft.Hosting.Lifetime[0]
+backend-api_1    |       Content root path: /app
+```
+Caso o processo anterior termine com a mensagem:
+
+```
+backend-test_backend-api_1 exited with code 139
+ 
+```
+Faça rebuild do container:
+
+```
+docker-compose up --build
+```
+Com isso você deverá ver a mensagem alertando que a aplicação esta rodando.
+
+API `http://localhost:5000/`
+
+Documentação Swagger `http://localhost:5000/swagger/`
