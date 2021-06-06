@@ -20,6 +20,7 @@ from .api import *
 
 api_router = routers.DefaultRouter()
 api_router.register("produto", ProdutoViewSet)
+api_router.register("categoria", CategoriaViewSet)
 
 urlpatterns = [
     path("", include(api_router.urls)),
