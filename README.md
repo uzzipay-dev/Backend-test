@@ -26,6 +26,15 @@ Usei o Insomnia para testes de requisições API
 
 - [Insomnia](https://insomnia.rest/download)
 
+Para analisar o banco de dados SQLite antes ou após os testes, copie-o com:
+```
+docker cp {4 primeiros digitos do ID do Container}:/code/db.sqlite3 .
+```
+
+E abra ele com:
+- [DB Browser for SQLite](https://sqlitebrowser.org)
+
+
 ## Requisitos para executar a aplicação
  1. Docker
  2. Docker Compose
