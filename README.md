@@ -1,74 +1,149 @@
-# Backend
+# API de Manipulação de Produtos e Categorias
 
-Somos uma Fintech que atua em vários segmentos de mercado, com diferentes tecnologias, culturas e desafios. Por isso, gostamos de compor nossos times com profissionais multidisciplinares, que tenham alta capacidade de aprendizado, sejam detalhistas, resiliêntes, questionadores e curiosos. Você, como Backend Developer, será o responsável por implementar, dar manutenção, aplicar correções e propor soluções em arquiteturas RESTFul API, baseadas em Micros serviços sempre buscando a melhor composição de tecnologias para cada cenário.
+### Autor
 
-# Objetivo do desafio
+- Desenvolvedor: Deodato Silva
+- Email: deodatojunior999@gmail.com
 
-O desafio para Backend Developer, tem o objetivo de analisar como você constrói uma RESTFul API e como a sua estrutura de aplicações pode ser escalável e maleável as mudanças de escopo.
+#### Frameworks
 
-# Orientações
+- [Python 3.9.5](https://www.python.org/doc/)
+- [SQLite](https://sqlite.org/index.html)
+- [Docker](https://docs.docker.com/)
+- [Django 3.2.4](https://www.djangoproject.com)
+- [Django Rest Framework 3.12.4](https://www.django-rest-framework.org)
+- [Guia de estilo para código Python PEP8](https://www.python.org/dev/peps/pep-0008/)
 
-Para executar o desafio de Backend Developer, você poderá utilizar qualquer liguagem de programação, framework ou biblioteca e banco de dados que for confortável para você, seguindo o passo-a-passo para a execução, atendendo aos critérios de aceitação.
 
-# Desafio
+#### Diagrama de Entidade-Relacionamento
+![DER](TesteBackend/docs/diagrama.png)
 
-Você é o responsável por construir uma RESTFul API que seja capaz de efetuar o CRUD de produtos e categorias. O produto deve conter obrigatoriamente os campos id, nome e preço e a categoria deve conter id e nome. Cada produto, pode estar relacionado a várias categorias e este não pode estar relacionado a mesma categoria mais de uma vez, bem como, cada categoria pode estar relacionada a vários produtos. A implementação deve iniciar com apenas o CRUD de produtos, sem relação ao CRUD de categorias e então, deve ser implementado o CRUD de categorias após implementado o CRUD de produtos.
 
-É imprescindível que o CRUD de categorias seja implementado após o CRUD de produtos, pois analisaremos como você executa e automatiza as alterações na sua base de dados.
+#### Nota
+Sendo o banco de dados utilizado SQLite, ele está localizado junto ao código Python.
 
-Dica: Utilize Migrations.
+Usei o Insomnia para testes de requisições API
 
-# Etapas
+- [Insomnia](https://insomnia.rest/download)
 
-#1 - Fazer um fork desse repositório
-![image](https://user-images.githubusercontent.com/80771610/111335799-0e913a80-864b-11eb-94a7-d3c7b6d17e0a.png)
+## Requisitos para executar a aplicação
+ 1. Docker
+ 2. Docker Compose
 
-# 2 - Criar um branch com o seu primeiro e último nome
-git checkout -b Steven Jobs
+ [Link para download](https://www.docker.com/products/docker-desktop)
 
-# 3 - Escreva a documentação da sua aplicação
-Crie uma pasta na raíz da aplicação chamada docs/ contendo o a modelagem entidade-relacionamento (em imagem ou pdf) da sua aplicação. Você deve também, substituir o conteúdo do arquivo README.md e escrever a documentação da sua aplicação, com os seguintes tópicos:
+### Windows
+ *O executavel para windows já contem as duas dependências*.
 
-Projeto: Descreva o projeto e como você o executou. Seja objetivo.
-Tecnologias: Descreva quais tecnologias foram utilizadas, enumerando versões (se necessário) e os links para suas documentações, bem como, qual guia de estilos de código você utilizou com o link para a sua documentação.
-Como rodar: Descreva como iniciar a sua aplicação, utilizando Docker e Docker Compose.
-Observações: Escreva a documentação em formato Markdown.
+Certifique-se de instalar a atualização do kernel do Linux para Windows. 
 
-# 4 - Faça uma Pull Request
-Após implementada a solução, crie uma pull request com o seu projeto para esse repositório.
+https://docs.microsoft.com/pt-br/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package.
 
-# Critérios de Aceitação
-Para que seu teste tenha o mínimo necessário que atenda aos requisitos esperados, ele deve:
+Caso tenha algum empecilho com a instalação, basta seguir o [Manual](https://docs.docker.com/docker-for-windows/install/).
 
-Atender ao que foi proposto no Desafio.
-Ter documentação de aplicação e modelos de banco de dados.
-Utilize o paradigma de orientação a objetos.
-Sua RESTFul API deve se comunicar em JSON e apenas nele.
-Utilize corretamente os códigos de retorno HTTP. Gostamos dessa abordagem.
-Manter uma estrutura de aplicação concisa e coerente. (Simples é melhor que complexo)
-Sua aplicação e banco de dados devem conter uma implementação como container Docker.
-Código escrito com base em algum padrão de convenções (style guide) da linguagem que está utilizando. Ex: Em Python, temos o pep8, em PHP temos a PSR2, em JavaScript temos AirBnB Standards e o Javascript Standards, etc.
-Utilizar padrões semânticos em mensagens de commit. (Gostamos do padrão de commits do repositório AngularJS)
+### Linux
 
-# Dicas e Informações Valiosas
+#### Ubuntu 20.04
+Primeiro, atualize sua lista existente de pacotes:
+```
+sudo apt update
+```
+Em seguida, instale alguns pacotes pré-requisito que deixam o apt usar pacotes pelo HTTPS:
+```
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
 
-# O que gostaríamos de ver em seu teste:
-Testar ele localmente com docker e validar os endpoints.
-Se possível, que seu teste estivesse hospedado em algum lugar. (Gostamos do Heroku).
-Convenção de nome em classes, objetos, variáveis, métodos e etc.
-Um planejamento de entrega das tarefas do seu desafio. (Gostamos de Kanban).
-Que sua estrutura de linguagem e tecnologias seja compatível com ambiente Linux.
-Testes unitários.
-Observação: Nenhum dos itens acima é obrigatório.
+```
+Então, adicione a chave GPG para o repositório oficial do Docker no seu sistema:
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-# O que não gostaríamos de ver no seu teste:
-Saber que não foi você quem implementou.
-Processos manuais de inicialização da aplicação e banco de dados.
-Fraco relacionamento entre colunas nas tabelas (falta de Foreign Key e Constraints).
-Falta de organização de código.
-Falta de documentação.
-Histórico de commits desorganizado e despadronizado.
+```
+Adicione o repositório do Docker às fontes do APT:
+```
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 
+```
+
+Em seguida, atualize o banco de dados do pacote com os pacotes do Docker do recém adicionado repositório:
+```
+sudo apt update
+
+```
+Certifique-se de que você está prestes a instalar do repositório do Docker ao invés do repositório padrão do Ubuntu:
+
+```
+apt-cache policy docker-ce
+```
+
+Finalmente, instale o Docker:
+
+```
+sudo apt install docker-ce
+
+```
+
+O Docker deve agora ser instalado, o daemon iniciado e o processo habilitado a iniciar no boot. Verifique se ele está funcionando:
+```
+sudo systemctl status docker
+```
+
+Agora, instale o Docker Compose:
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+```
+
+Em seguida, defina as permissões corretas para que o comando docker-compose seja executável:
+```
+sudo chmod +x /usr/local/bin/docker-compose
+
+```
+Para verificar se a instalação foi bem sucedida, execute:
+```
+docker-compose --version
+```
+
+### Pós-instalação
+***O Docker irá fazer uso da porta 80.***
+
+***Caso tenha algum servidor ativo com essas portas, desligue.***
+
+
+Navegue até a pasta TesteBackend e execute:
+
+***Execute no PowerShell (Windows).***
+```
+docker-compose up --build
+```
+
+A aplicação estará em execução após a seguinte mensagem:
+```
+web_1  | Watching for file changes with StatReloader
+web_1  | Performing system checks...
+web_1  |
+web_1  | System check identified no issues (0 silenced).
+web_1  |
+web_1  | You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+web_1  | Run 'python manage.py migrate' to apply them.
+web_1  | June 07, 2021 - 01:38:30
+web_1  | Django version 3.2.4, using settings 'TesteBackend.settings'
+web_1  | Starting development server at http://0.0.0.0:80/
+
+```
+Caso o processo anterior termine com a mensagem:
+
+```
+testebackend_web_1 exited with code 139
+ 
+```
+Faça rebuild do container:
+
+```
+docker-compose up --build
+```
+Com isso você deverá ver a mensagem alertando que a aplicação esta rodando.
+
+API para testes de endpoints e Documentação Django Rest Framework `http://localhost/` ou `http://127.0.0.1/`
 
 
 
