@@ -1,12 +1,6 @@
 version: '3.7'
 
 services:
-  db:
-    image: postgres
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:80
@@ -14,7 +8,3 @@ services:
       - .:/code
     ports:
       - "80:80"
-    links:
-      - db
-    depends_on:
-      - db

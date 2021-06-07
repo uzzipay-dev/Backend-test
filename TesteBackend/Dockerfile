@@ -9,5 +9,6 @@ RUN pip install -U pip setuptools
 COPY requirements.txt /code/
 RUN pip install -r /code/requirements.txt
 ADD . /code/
+RUN python manage.py migrate TesteBackend
 # Django service
 EXPOSE 80
