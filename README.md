@@ -143,7 +143,16 @@ docker-compose up --build
 ```
 Com isso você deverá ver a mensagem alertando que a aplicação esta rodando.
 
-API para testes de endpoints e Documentação de cada requisição informada na URL do navegador pelo Django Rest Framework `http://localhost/` ou `http://127.0.0.1/`
+API para testes de endpoints e Documentação por requisição Django Rest Framework `http://localhost/` ou `http://127.0.0.1/`
+
+#Exemplos de uso da API:
+
+- ```http://localhost/produto/``` ou ```http://127.0.0.1/produto/``` GET, POST, HEAD ou OPTIONS - Produto
+- ```http://localhost/categoria/``` ou ```http://127.0.0.1/categoria/``` GET, POST, HEAD ou OPTIONS - Categoria
+- ```http://localhost/produto/{id}/``` ou ```http://127.0.0.1/produto/{id}/``` GET, PUT, PATCH, DELETE, HEAD ou OPTIONS - Produto
+- ```http://localhost/categoria/{id}/``` ou ```http://127.0.0.1/categoria/{id}/``` GET, PUT, PATCH, DELETE, HEAD ou OPTIONS - Categoria
+
+
 
 
 
