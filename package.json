@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn ./src/server.ts",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
@@ -35,7 +36,9 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "reflect-metadata": "^0.1.13"
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41"
   },
   "config": {
     "commitizen": {
