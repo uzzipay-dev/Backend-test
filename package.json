@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn ./src/server.ts",
-    "prepare": "husky install"
-
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
@@ -16,6 +16,8 @@
     "@types/express": "^4.17.13",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -34,5 +36,10 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "reflect-metadata": "^0.1.13"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
