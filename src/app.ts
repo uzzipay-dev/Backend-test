@@ -12,4 +12,4 @@ app.get('/', (req, res) => {
   return res.json({ message: 'Hello world' });
 });
 
-export { app }
+export { app };
