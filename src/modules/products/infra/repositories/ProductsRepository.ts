@@ -29,4 +29,10 @@ export class ProductsRepository implements IProductsRepository {
 
     return product;
   }
+
+  async listAll(): Promise<Product[]> {
+    const products = await this.repository.find();
+
+    return products;
+  }
 }
