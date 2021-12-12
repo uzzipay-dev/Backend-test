@@ -35,4 +35,14 @@ export class ProductsRepository implements IProductsRepository {
 
     return products;
   }
+
+  async deleteById(id: string): Promise<void> {
+    await this.repository.delete({ id });
+  }
+
+  async findById(id: string): Promise<Product> {
+    const product = await this.repository.findOne({ id });
+
+    return product;
+  }
 }
