@@ -1,6 +1,13 @@
-/* eslint-disable no-return-await */
-import { createConnection, Connection } from 'typeorm';
+import { createConnection, Connection, getConnectionOptions } from 'typeorm';
 
 export default async (): Promise<Connection> => {
-  return await createConnection();
+  const defaultOptions = await getConnectionOptions();
+  return createConnection(
+    Object.assign(defaultOptions, {
+      database:
+        process.env.NODE_ENV === 'test'
+          ? process.env.TYPEORM_DATABASE_TEST
+          : defaultOptions.database
+    })
+  );
 };
