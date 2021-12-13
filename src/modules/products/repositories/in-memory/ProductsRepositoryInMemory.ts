@@ -32,8 +32,7 @@ export class ProductsRepositoryInMemory implements IProductsRepository {
 
   async deleteById(id: string): Promise<void> {
     const product = this.products.find(product => product.id === id);
-
-    this.products.slice(this.products.indexOf(product));
+    this.products.splice(this.products.indexOf(product));
   }
 
   async findById(id: string): Promise<Product> {
