@@ -1,6 +1,7 @@
 import { getRepository, Repository } from 'typeorm';
 
 import { ICreateProductDTO } from '@modules/products/dtos/ICreateProductDTO';
+import { IUpdateProductDTO } from '@modules/products/dtos/IUpdateProductDTO';
 import { IProductsRepository } from '@modules/products/repositories/IProductsRespository';
 
 import { Product } from '../entities/Product';
@@ -44,5 +45,19 @@ export class ProductsRepository implements IProductsRepository {
     const product = await this.repository.findOne({ id });
 
     return product;
+  }
+
+  async updateById({
+    id,
+    name,
+    price,
+    category
+  }: IUpdateProductDTO): Promise<void> {
+    await this.repository.save({
+      id,
+      name,
+      price,
+      category
+    });
   }
 }
