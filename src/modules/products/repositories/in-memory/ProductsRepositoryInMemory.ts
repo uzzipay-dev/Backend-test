@@ -1,4 +1,5 @@
 import { ICreateProductDTO } from '@modules/products/dtos/ICreateProductDTO';
+import { IUpdateProductDTO } from '@modules/products/dtos/IUpdateProductDTO';
 import { Product } from '@modules/products/infra/entities/Product';
 
 import { IProductsRepository } from '../IProductsRespository';
@@ -37,5 +38,23 @@ export class ProductsRepositoryInMemory implements IProductsRepository {
 
   async findById(id: string): Promise<Product> {
     return this.products.find(product => product.id === id);
+  }
+
+  async updateById({
+    id,
+    name,
+    category,
+    price
+  }: IUpdateProductDTO): Promise<void> {
+    const product = this.products.find(product => product.id === id);
+    this.products.splice(this.products.indexOf(product));
+
+    Object.assign(product, {
+      name,
+      price,
+      category
+    });
+
+    this.products.push(product);
   }
 }
