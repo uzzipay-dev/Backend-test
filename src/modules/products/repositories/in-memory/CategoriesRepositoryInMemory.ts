@@ -20,4 +20,10 @@ export class CategoriesRepositoryInMemory implements ICategoriesRepository {
   async findByName(name: string): Promise<Category> {
     return this.categories.find(category => category.name === name);
   }
+
+  async listAll(): Promise<Category[]> {
+    const allCategories = this.categories;
+
+    return allCategories;
+  }
 }
