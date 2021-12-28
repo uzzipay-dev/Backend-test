@@ -30,4 +30,14 @@ export class CategoriesRepository implements ICategoriesRepository {
 
     return categories;
   }
+
+  async findById(id: string): Promise<Category> {
+    const category = await this.repository.findOne({ id });
+
+    return category;
+  }
+
+  async deleteById(id: string): Promise<void> {
+    await this.repository.delete({ id });
+  }
 }
