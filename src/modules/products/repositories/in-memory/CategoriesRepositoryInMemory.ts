@@ -26,4 +26,13 @@ export class CategoriesRepositoryInMemory implements ICategoriesRepository {
 
     return allCategories;
   }
+
+  async findById(id: string): Promise<Category> {
+    return this.categories.find(category => category.id === id);
+  }
+
+  async deleteById(id: string): Promise<void> {
+    const category = this.categories.find(category => category.id === id);
+    this.categories.splice(this.categories.indexOf(category));
+  }
 }
