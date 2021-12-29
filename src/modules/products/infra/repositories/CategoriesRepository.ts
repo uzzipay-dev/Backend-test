@@ -40,4 +40,11 @@ export class CategoriesRepository implements ICategoriesRepository {
   async deleteById(id: string): Promise<void> {
     await this.repository.delete({ id });
   }
+
+  async update(id: string, name: string): Promise<void> {
+    await this.repository.save({
+      id,
+      name
+    });
+  }
 }
