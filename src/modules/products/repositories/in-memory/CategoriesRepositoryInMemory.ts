@@ -35,4 +35,17 @@ export class CategoriesRepositoryInMemory implements ICategoriesRepository {
     const category = this.categories.find(category => category.id === id);
     this.categories.splice(this.categories.indexOf(category));
   }
+
+  async update(id: string, name: string): Promise<void> {
+    const category = this.categories.find(product => product.id === id);
+
+    this.categories.splice(this.categories.indexOf(category));
+
+    Object.assign(category, {
+      id,
+      name
+    });
+
+    this.categories.push(category);
+  }
 }
