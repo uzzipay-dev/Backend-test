@@ -15,14 +15,12 @@ describe('Delete product by id', () => {
   it('should be possible to delete a product by id', async () => {
     const product1 = {
       name: 'test 1',
-      price: 1800,
-      category: 'category test'
+      price: 1800
     };
 
     const product2 = {
       name: 'test 2',
-      price: 1800,
-      category: 'category test'
+      price: 1800
     };
 
     const createdProduct1 = await productsRepositoryInMemory.create(product1);

@@ -40,8 +40,7 @@ describe('Create product controller', () => {
       .post('/api/v1/products')
       .send({
         name: 'product test',
-        price: 1000,
-        category: 'category test'
+        price: 1000
       })
       .set({
         Authorization: `Bearer ${token}`

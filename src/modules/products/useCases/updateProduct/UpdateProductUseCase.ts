@@ -8,7 +8,6 @@ interface IRequest {
   id: string;
   name?: string;
   price?: number;
-  category?: string;
 }
 
 @injectable()
@@ -18,7 +17,7 @@ export class UpdateProductUseCase {
     private productsRepository: IProductsRepository
   ) {}
 
-  async execute({ id, name, category, price }: IRequest): Promise<Product> {
+  async execute({ id, name, price }: IRequest): Promise<Product> {
     const product = await this.productsRepository.findById(id);
 
     if (!product) {
@@ -27,10 +26,6 @@ export class UpdateProductUseCase {
 
     if (name) {
       product.name = name;
-    }
-
-    if (category) {
-      product.category = category;
     }
 
     if (price) {

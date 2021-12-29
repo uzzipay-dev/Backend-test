@@ -13,11 +13,10 @@ export class ProductsRepository implements IProductsRepository {
     this.repository = getRepository(Product);
   }
 
-  async create({ name, price, category }: ICreateProductDTO): Promise<Product> {
+  async create({ name, price }: ICreateProductDTO): Promise<Product> {
     const product = this.repository.create({
       name,
-      price,
-      category
+      price
     });
 
     await this.repository.save(product);
@@ -47,17 +46,11 @@ export class ProductsRepository implements IProductsRepository {
     return product;
   }
 
-  async updateById({
-    id,
-    name,
-    price,
-    category
-  }: IUpdateProductDTO): Promise<void> {
+  async updateById({ id, name, price }: IUpdateProductDTO): Promise<void> {
     await this.repository.save({
       id,
       name,
-      price,
-      category
+      price
     });
   }
 }
