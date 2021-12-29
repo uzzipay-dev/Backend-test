@@ -40,8 +40,7 @@ describe('Updated product controller', () => {
       .post('/api/v1/products')
       .send({
         name: 'product test',
-        price: 1000,
-        category: 'category test'
+        price: 1000
       })
       .set({
         Authorization: `Bearer ${token}`
@@ -51,8 +50,7 @@ describe('Updated product controller', () => {
       .patch(`/api/v1/products/${createdProduct.body.id}`)
       .send({
         name: 'updated name',
-        price: 2000,
-        category: 'updated category'
+        price: 2000
       })
       .set({
         Authorization: `Bearer ${token}`
@@ -62,6 +60,5 @@ describe('Updated product controller', () => {
     expect(updatedProduct.body.id).toEqual(createdProduct.body.id);
     expect(updatedProduct.body.name).toEqual('updated name');
     expect(updatedProduct.body.price).toEqual('2000');
-    expect(updatedProduct.body.category).toEqual('updated category');
   });
 });

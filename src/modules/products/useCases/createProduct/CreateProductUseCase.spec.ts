@@ -15,8 +15,7 @@ describe('Create a new product', () => {
   it('should be able to create a new product', async () => {
     const product = {
       name: 'test',
-      price: 1800,
-      category: 'category test'
+      price: 1800
     };
 
     const response = await createProductUseCase.execute(product);
@@ -30,8 +29,7 @@ describe('Create a new product', () => {
   it('should not be able to create a product if name already exist', async () => {
     const product = {
       name: 'test',
-      price: 1800,
-      category: 'category test'
+      price: 1800
     };
 
     await createProductUseCase.execute(product);

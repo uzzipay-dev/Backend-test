@@ -40,8 +40,7 @@ describe('Create product controller', () => {
       .post('/api/v1/products')
       .send({
         name: 'product test',
-        price: 1000,
-        category: 'category test'
+        price: 1000
       })
       .set({
         Authorization: `Bearer ${token}`
@@ -50,21 +49,5 @@ describe('Create product controller', () => {
     expect(response.status).toEqual(201);
     expect(response.body).toHaveProperty('id');
     expect(response.body.name).toEqual('product test');
-  });
-
-  it('should not be possible to create a product without a valid token', async () => {
-    const response = await request(app)
-      .post('/api/v1/products')
-      .send({
-        name: 'product test 2',
-        price: 1000,
-        category: 'category test'
-      })
-      .set({
-        Authorization: `Bearer token`
-      });
-
-    expect(response.status).toEqual(401);
-    expect(response.body.message).toEqual('Invalid token');
   });
 });

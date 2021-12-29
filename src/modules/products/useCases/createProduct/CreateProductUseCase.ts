@@ -7,7 +7,6 @@ import { AppError } from '@shared/errors/AppError';
 interface IRequest {
   name: string;
   price: number;
-  category: string;
 }
 
 @injectable()
@@ -17,7 +16,7 @@ export class CreateProductUseCase {
     private productsRepository: IProductsRepository
   ) {}
 
-  async execute({ name, category, price }: IRequest): Promise<Product> {
+  async execute({ name, price }: IRequest): Promise<Product> {
     const productAlreadyExists = await this.productsRepository.findByName(name);
 
     if (productAlreadyExists) {
@@ -26,7 +25,6 @@ export class CreateProductUseCase {
 
     const product = await this.productsRepository.create({
       name,
-      category,
       price
     });
 

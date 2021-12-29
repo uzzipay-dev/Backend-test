@@ -14,14 +14,12 @@ describe('List all products', () => {
   it('should be possible to list all the products', async () => {
     const product1 = {
       name: 'test 1',
-      price: 1800,
-      category: 'category test'
+      price: 1800
     };
 
     const product2 = {
       name: 'test 2',
-      price: 1800,
-      category: 'category test'
+      price: 1800
     };
 
     await productsRepositoryInMemory.create(product1);

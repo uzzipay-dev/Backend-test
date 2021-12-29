@@ -40,8 +40,7 @@ describe('List products controller', () => {
       .post('/api/v1/products')
       .send({
         name: 'product test 1',
-        price: 1000,
-        category: 'category test'
+        price: 1000
       })
       .set({
         Authorization: `Bearer ${token}`
@@ -51,8 +50,7 @@ describe('List products controller', () => {
       .post('/api/v1/products')
       .send({
         name: 'product test 2',
-        price: 1000,
-        category: 'category test'
+        price: 1000
       })
       .set({
         Authorization: `Bearer ${token}`

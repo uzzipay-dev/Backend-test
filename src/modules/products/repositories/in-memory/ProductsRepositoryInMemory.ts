@@ -7,13 +7,12 @@ import { IProductsRepository } from '../IProductsRespository';
 export class ProductsRepositoryInMemory implements IProductsRepository {
   products: Product[] = [];
 
-  async create({ name, price, category }: ICreateProductDTO): Promise<Product> {
+  async create({ name, price }: ICreateProductDTO): Promise<Product> {
     const product = new Product();
 
     Object.assign(product, {
       name,
-      price,
-      category
+      price
     });
 
     this.products.push(product);
@@ -40,19 +39,13 @@ export class ProductsRepositoryInMemory implements IProductsRepository {
     return this.products.find(product => product.id === id);
   }
 
-  async updateById({
-    id,
-    name,
-    category,
-    price
-  }: IUpdateProductDTO): Promise<void> {
+  async updateById({ id, name, price }: IUpdateProductDTO): Promise<void> {
     const product = this.products.find(product => product.id === id);
     this.products.splice(this.products.indexOf(product));
 
     Object.assign(product, {
       name,
-      price,
-      category
+      price
     });
 
     this.products.push(product);
