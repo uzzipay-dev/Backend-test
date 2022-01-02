@@ -15,7 +15,8 @@ describe('Update product', () => {
   it('should be able to update the product name', async () => {
     const product = {
       name: 'test update name',
-      price: 1800
+      price: 1800,
+      categories_ids: ['id fake']
     };
 
     const createdProduct = await productsRepositoryInMemory.create(product);
