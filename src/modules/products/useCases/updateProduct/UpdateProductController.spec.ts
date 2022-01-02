@@ -36,11 +36,21 @@ describe('Updated product controller', () => {
 
     const { token } = responseSession.body;
 
+    const createdCategory = await request(app)
+      .post('/api/v1/categories')
+      .send({
+        name: 'category test 1'
+      })
+      .set({
+        Authorization: `Bearer ${token}`
+      });
+
     const createdProduct = await request(app)
       .post('/api/v1/products')
       .send({
         name: 'product test',
-        price: 1000
+        price: 1000,
+        categories_ids: [createdCategory.body.id]
       })
       .set({
         Authorization: `Bearer ${token}`

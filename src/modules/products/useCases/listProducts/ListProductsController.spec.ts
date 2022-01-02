@@ -36,11 +36,30 @@ describe('List products controller', () => {
 
     const { token } = createSession.body;
 
+    const createdCategory1 = await request(app)
+      .post('/api/v1/categories')
+      .send({
+        name: 'category test 1'
+      })
+      .set({
+        Authorization: `Bearer ${token}`
+      });
+
+    const createdCategory2 = await request(app)
+      .post('/api/v1/categories')
+      .send({
+        name: 'category test 2'
+      })
+      .set({
+        Authorization: `Bearer ${token}`
+      });
+
     await request(app)
       .post('/api/v1/products')
       .send({
         name: 'product test 1',
-        price: 1000
+        price: 1000,
+        categories_ids: [createdCategory1.body.id, createdCategory2.body.id]
       })
       .set({
         Authorization: `Bearer ${token}`
@@ -50,7 +69,8 @@ describe('List products controller', () => {
       .post('/api/v1/products')
       .send({
         name: 'product test 2',
-        price: 1000
+        price: 1000,
+        categories_ids: [createdCategory1.body.id, createdCategory2.body.id]
       })
       .set({
         Authorization: `Bearer ${token}`
@@ -58,7 +78,7 @@ describe('List products controller', () => {
 
     const response = await request(app).get('/api/v1/products');
 
-    expect(response.body).toHaveLength(2);
     expect(response.status).toEqual(200);
+    expect(response.body).toHaveLength(2);
   });
 });

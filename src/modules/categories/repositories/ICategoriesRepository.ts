@@ -7,6 +7,7 @@ interface ICategoriesRepository {
   findById(id: string): Promise<Category>;
   deleteById(id: string): Promise<void>;
   update(id: string, name: string): Promise<void>;
+  findByIds(ids: string[]): Promise<Category[]>;
 }
 
 export { ICategoriesRepository };

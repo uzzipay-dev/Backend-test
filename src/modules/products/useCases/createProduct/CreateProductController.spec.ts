@@ -36,18 +36,39 @@ describe('Create product controller', () => {
 
     const { token } = responseSession.body;
 
-    const response = await request(app)
-      .post('/api/v1/products')
+    const createdCategory1 = await request(app)
+      .post('/api/v1/categories')
       .send({
-        name: 'product test',
-        price: 1000
+        name: 'category test 1'
       })
       .set({
         Authorization: `Bearer ${token}`
       });
 
-    expect(response.status).toEqual(201);
-    expect(response.body).toHaveProperty('id');
-    expect(response.body.name).toEqual('product test');
+    const createdCategory2 = await request(app)
+      .post('/api/v1/categories')
+      .send({
+        name: 'category test 2'
+      })
+      .set({
+        Authorization: `Bearer ${token}`
+      });
+
+    const createdProduct = await request(app)
+      .post('/api/v1/products')
+      .send({
+        name: 'product test',
+        price: 1000,
+        categories_ids: [createdCategory1.body.id, createdCategory2.body.id]
+      })
+      .set({
+        Authorization: `Bearer ${token}`
+      });
+
+    expect(createdProduct.status).toEqual(201);
+    expect(createdProduct.body).toHaveProperty('id');
+    expect(createdProduct.body).toHaveProperty('categories');
+    expect(createdProduct.body.name).toEqual('product test');
+    expect(createdProduct.body.categories).toHaveLength(2);
   });
 });
