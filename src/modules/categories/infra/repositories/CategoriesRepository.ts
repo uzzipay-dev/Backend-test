@@ -47,4 +47,10 @@ export class CategoriesRepository implements ICategoriesRepository {
       name
     });
   }
+
+  async findByIds(ids: string[]): Promise<Category[]> {
+    const categories = await this.repository.findByIds(ids);
+
+    return categories;
+  }
 }
