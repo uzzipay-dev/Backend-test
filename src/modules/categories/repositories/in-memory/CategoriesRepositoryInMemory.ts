@@ -48,4 +48,12 @@ export class CategoriesRepositoryInMemory implements ICategoriesRepository {
 
     this.categories.push(category);
   }
+
+  async findByIds(ids: string[]): Promise<Category[]> {
+    const categories = await this.categories.filter(category =>
+      ids.includes(category.id)
+    );
+
+    return categories;
+  }
 }
