@@ -7,12 +7,17 @@ import { IProductsRepository } from '../IProductsRespository';
 export class ProductsRepositoryInMemory implements IProductsRepository {
   products: Product[] = [];
 
-  async create({ name, price }: ICreateProductDTO): Promise<Product> {
+  async create({
+    name,
+    price,
+    categories
+  }: ICreateProductDTO): Promise<Product> {
     const product = new Product();
 
     Object.assign(product, {
       name,
-      price
+      price,
+      categories
     });
 
     this.products.push(product);
