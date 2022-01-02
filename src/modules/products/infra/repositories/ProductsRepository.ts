@@ -40,7 +40,9 @@ export class ProductsRepository implements IProductsRepository {
   }
 
   async listAll(): Promise<Product[]> {
-    const products = await this.repository.find();
+    const products = await this.repository.find({
+      relations: ['categories']
+    });
 
     return products;
   }
