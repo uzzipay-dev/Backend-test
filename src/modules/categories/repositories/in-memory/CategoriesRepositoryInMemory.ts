@@ -1,4 +1,4 @@
-import { Category } from '@modules/products/infra/entities/Category';
+import { Category } from '@modules/categories/infra/entities/Category';
 
 import { ICategoriesRepository } from '../ICategoriesRepository';
 

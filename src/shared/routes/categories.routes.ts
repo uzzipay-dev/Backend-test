@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import { CreateCategoryController } from '@modules/products/useCases/createCategory/CreateCategoryController';
-import { DeleteCategoryController } from '@modules/products/useCases/deleteCategory/DeleteCategoryController';
-import { ListCategoriesController } from '@modules/products/useCases/listCategories/ListCategoriesController';
-import { UpdateCategoryController } from '@modules/products/useCases/updateCategory/UpdateCategoryController';
+import { CreateCategoryController } from '@modules/categories/useCases/createCategory/CreateCategoryController';
+import { DeleteCategoryController } from '@modules/categories/useCases/deleteCategory/DeleteCategoryController';
+import { ListCategoriesController } from '@modules/categories/useCases/listCategories/ListCategoriesController';
+import { UpdateCategoryController } from '@modules/categories/useCases/updateCategory/UpdateCategoryController';
 import { ensureAdmin } from '@shared/middlewares/ensureAdmin';
 import { ensureAuthenticated } from '@shared/middlewares/ensureAuthenticated';
 

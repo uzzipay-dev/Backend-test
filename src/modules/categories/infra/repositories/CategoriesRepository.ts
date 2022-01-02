@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
-import { ICategoriesRepository } from '@modules/products/repositories/ICategoriesRepository';
+import { ICategoriesRepository } from '@modules/categories/repositories/ICategoriesRepository';
 
 import { Category } from '../entities/Category';
 
