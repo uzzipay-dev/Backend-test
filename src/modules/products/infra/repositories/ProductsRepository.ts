@@ -13,15 +13,24 @@ export class ProductsRepository implements IProductsRepository {
     this.repository = getRepository(Product);
   }
 
-  async create({ name, price }: ICreateProductDTO): Promise<Product> {
+  async create({
+    name,
+    price,
+    categories
+  }: ICreateProductDTO): Promise<Product> {
     const product = this.repository.create({
       name,
-      price
+      price,
+      categories
     });
 
     await this.repository.save(product);
 
-    return product;
+    const createdProduct = await this.repository.findOne(product.id, {
+      relations: ['categories']
+    });
+
+    return createdProduct;
   }
 
   async findByName(name: string): Promise<Product> {
