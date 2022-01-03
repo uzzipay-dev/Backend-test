@@ -45,7 +45,7 @@ describe('List products by categories', () => {
         Authorization: `Bearer ${token}`
       });
 
-    await request(app)
+    const createdProduct1 = await request(app)
       .post('/api/v1/products')
       .send({
         name: 'product test 1',
@@ -56,7 +56,7 @@ describe('List products by categories', () => {
         Authorization: `Bearer ${token}`
       });
 
-    await request(app)
+    const createdProduct2 = await request(app)
       .post('/api/v1/products')
       .send({
         name: 'product test 2',
@@ -71,8 +71,24 @@ describe('List products by categories', () => {
       `/api/v1/categories/${createdCategory1.body.id}`
     );
 
+    const products = [
+      {
+        id: createdProduct1.body.id,
+        name: createdProduct1.body.name,
+        price: createdProduct1.body.price,
+        created_at: createdProduct1.body.created_at
+      },
+      {
+        id: createdProduct2.body.id,
+        name: createdProduct2.body.name,
+        price: createdProduct2.body.price,
+        created_at: createdProduct2.body.created_at
+      }
+    ];
+
     expect(response.statusCode).toEqual(200);
     expect(response.body.id).toEqual(createdCategory1.body.id);
     expect(response.body.products).toHaveLength(2);
+    expect(response.body.products).toEqual(products);
   });
 });
