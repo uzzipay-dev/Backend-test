@@ -9,7 +9,7 @@ import { app } from '../../../../app';
 
 let connection: Connection;
 
-describe('List products by categories', () => {
+describe('List categories by product', () => {
   beforeAll(async () => {
     connection = await createConnection();
     await connection.runMigrations();
@@ -28,7 +28,7 @@ describe('List products by categories', () => {
     await connection.close();
   });
 
-  it('should be able list products by category', async () => {
+  it('should be able list categories by product', async () => {
     const createSession = await request(app).post('/api/v1/session').send({
       email: 'admin@test.com',
       password: '123456789'
@@ -45,50 +45,36 @@ describe('List products by categories', () => {
         Authorization: `Bearer ${token}`
       });
 
-    const createdProduct1 = await request(app)
-      .post('/api/v1/products')
+    const createdCategory2 = await request(app)
+      .post('/api/v1/categories')
       .send({
-        name: 'product test 1',
-        price: 1000,
-        categories_ids: [createdCategory1.body.id]
+        name: 'category test 2'
       })
       .set({
         Authorization: `Bearer ${token}`
       });
 
-    const createdProduct2 = await request(app)
+    const createdProduct = await request(app)
       .post('/api/v1/products')
       .send({
-        name: 'product test 2',
+        name: 'product test 1',
         price: 1000,
-        categories_ids: [createdCategory1.body.id]
+        categories_ids: [createdCategory1.body.id, createdCategory2.body.id]
       })
       .set({
         Authorization: `Bearer ${token}`
       });
 
     const response = await request(app).post(
-      `/api/v1/categories/${createdCategory1.body.id}`
+      `/api/v1/products/${createdProduct.body.id}`
     );
 
-    const products = [
-      {
-        id: createdProduct1.body.id,
-        name: createdProduct1.body.name,
-        price: createdProduct1.body.price,
-        created_at: createdProduct1.body.created_at
-      },
-      {
-        id: createdProduct2.body.id,
-        name: createdProduct2.body.name,
-        price: createdProduct2.body.price,
-        created_at: createdProduct2.body.created_at
-      }
-    ];
-
     expect(response.statusCode).toEqual(200);
-    expect(response.body.id).toEqual(createdCategory1.body.id);
-    expect(response.body.products).toHaveLength(2);
-    expect(response.body.products).toEqual(products);
+    expect(response.body.id).toEqual(createdProduct.body.id);
+    expect(response.body.categories).toHaveLength(2);
+    expect(response.body.categories).toEqual([
+      createdCategory1.body,
+      createdCategory2.body
+    ]);
   });
 });
