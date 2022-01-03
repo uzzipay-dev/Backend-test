@@ -32,7 +32,9 @@ export class CategoriesRepository implements ICategoriesRepository {
   }
 
   async findById(id: string): Promise<Category> {
-    const category = await this.repository.findOne({ id });
+    const category = await this.repository.findOne(id, {
+      relations: ['products']
+    });
 
     return category;
   }
