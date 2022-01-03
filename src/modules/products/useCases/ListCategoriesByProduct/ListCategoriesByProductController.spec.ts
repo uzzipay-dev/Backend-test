@@ -69,9 +69,12 @@ describe('List categories by product', () => {
       `/api/v1/products/${createdProduct.body.id}`
     );
 
-    console.log(response.body);
     expect(response.statusCode).toEqual(200);
     expect(response.body.id).toEqual(createdProduct.body.id);
     expect(response.body.categories).toHaveLength(2);
+    expect(response.body.categories).toEqual([
+      createdCategory1.body,
+      createdCategory2.body
+    ]);
   });
 });
