@@ -50,7 +50,7 @@ export class CategoriesRepositoryInMemory implements ICategoriesRepository {
   }
 
   async findByIds(ids: string[]): Promise<Category[]> {
-    const categories = await this.categories.filter(category =>
+    const categories = this.categories.filter(category =>
       ids.includes(category.id)
     );
 
