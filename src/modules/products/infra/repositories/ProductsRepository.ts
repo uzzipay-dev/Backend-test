@@ -52,16 +52,24 @@ export class ProductsRepository implements IProductsRepository {
   }
 
   async findById(id: string): Promise<Product> {
-    const product = await this.repository.findOne({ id });
+    const product = await this.repository.findOne(id, {
+      relations: ['categories']
+    });
 
     return product;
   }
 
-  async updateById({ id, name, price }: IUpdateProductDTO): Promise<void> {
+  async updateById({
+    id,
+    name,
+    price,
+    categories
+  }: IUpdateProductDTO): Promise<void> {
     await this.repository.save({
       id,
       name,
-      price
+      price,
+      categories
     });
   }
 }
