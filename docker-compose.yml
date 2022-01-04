@@ -8,11 +8,13 @@ services:
       - 3333:3333
       - 9229:9229
     volumes:
-      - .:/usr/app
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
     links:
       - database
     depends_on:
       - database
+    command: yarn dev
 
   database:
     image: postgres:alpine
@@ -28,4 +30,6 @@ services:
 
 volumes:
   pgdata:
+    driver: local
+  node_modules:
     driver: local

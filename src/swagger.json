@@ -1,0 +1,372 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Uzzipay backend test",
+    "description": "João Paulo Araújo ❤️",
+    "version": "1.0.0",
+    "contact": {
+      "email": "araujojp@pm.me"
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+    "/api/v1/session": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authentication user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Email or password incorrect"
+          }
+        }
+      }
+    },
+    "/api/v1/categories": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create a category",
+        "description": "Create a new category",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "category name sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "category already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Category"],
+        "summary": "Find all categories",
+        "description": "find all categories",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/categories/{id}": {
+      "delete": {
+        "tags": ["Category"],
+        "summary": "Delete category by id",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "category id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Category not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Category"],
+        "summary": "Update category",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "category id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "category name sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Category not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Category"],
+        "summary": "Find products related to category",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "category id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "400": {
+            "description": "Category not found"
+          }
+        }
+      }
+    },
+    "/api/v1/products/": {
+      "post": {
+        "tags": ["Product"],
+        "summary": "Create a product",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "categories_ids": {
+                    "type": "array"
+                  }
+                },
+                "example": {
+                  "name": "category name sample",
+                  "price": 1000,
+                  "categories_ids": ["id category 1"]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "product already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Product"],
+        "summary": "Find all products",
+        "description": "find all products",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/{id}": {
+      "delete": {
+        "tags": ["Product"],
+        "summary": "Delete product by id",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "product id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Product not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Product"],
+        "summary": "Update product",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "product id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "categories_ids": {
+                    "type": "array"
+                  }
+                },
+                "example": {
+                  "name": "category name sample",
+                  "price": 1000,
+                  "categories_ids": [
+                    "id category 1"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Product not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Product"],
+        "summary": "Find categories related to product",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "product id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "400": {
+            "description": "Product not found"
+          }
+        }
+      }
+    }
+  }
+}
