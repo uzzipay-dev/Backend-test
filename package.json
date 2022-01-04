@@ -11,6 +11,7 @@
     "commit": "git-cz",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "seed:admin": "ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/admin.ts",
+    "seed:db": "ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/db.ts",
     "test": "NODE_ENV=test jest --runInBand --detectOpenHandles"
   },
   "devDependencies": {
