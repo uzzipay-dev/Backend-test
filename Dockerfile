@@ -92,14 +92,16 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
-WORKDIR /usr/app
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN yarn install
+COPY . . 
 
-COPY . .
+RUN yarn install
 
 EXPOSE 3333
 
-CMD [ "yarn", "dev" ]
+CMD [ "yarn", "dev"]
